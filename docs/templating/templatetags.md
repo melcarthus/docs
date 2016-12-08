@@ -469,9 +469,9 @@ or:
 
 ```
 {% if page|current %}
-    Yes, {{ page.title }} is the current page.
+	Yes, {{ page.title }} is the current page.
 {% else %}
-    No, you're viewing another page than {{ page.title}}
+	No, you're viewing another page than {{ page.title}}
 {% endif %}
 ```
 
@@ -765,7 +765,7 @@ Examples:
 {% endif %}
 ```
 
-You can use also this to output a friendly warning to users of the templates:
+You can use this also to output a friendly warning to users of the template:
 
 ```twig
 {% if app.extensions.get('Bolt/BoltForms') is defined %}
