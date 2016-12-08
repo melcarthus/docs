@@ -765,7 +765,7 @@ Examples:
 {% endif %}
 ```
 
-You can use this also to output a friendly warning to users of the template:
+You can also use this to output a friendly warning to users of the template:
 
 ```twig
 {% if app.extensions.get('Bolt/BoltForms') is defined %}
