@@ -469,9 +469,9 @@ or:
 
 ```
 {% if page|current %}
-	Yes, {{ page.title }} is the current page.
+    Yes, {{ page.title }} is the current page.
 {% else %}
-	No, you're viewing another page than {{ page.title}}
+    No, you're viewing another page than {{ page.title}}
 {% endif %}
 ```
 
@@ -753,30 +753,36 @@ Examples:
 
 ### defined (for extensions)
 
-Use this test to determine if a certain extension is available. You
-can use this in your themes, where it's not apparent whether or not the user
-will have a certain extension installed.
+Use this test to determine if a certain extension is available. You can use
+this in your themes, when it's not apparent whether or not the user will have
+a certain extension installed.
 
 Examples:
 
-```
-{% if FacebookLike is defined %}
-    {{ facebooklike() }}
+```twig
+{% if app.extensions.get('Bolt/FacebookComments') is defined %}
+    {{ include(template_from_string("{{ facebookcomments() }}") }}
 {% endif %}
 ```
 
-You can use this, to output a friendly warning to users of the templates:
+You can use also this to output a friendly warning to users of the templates:
 
-```
-{% if BoltForms is defined %}
-    {{ boltforms('contact') }}
+```twig
+{% if app.extensions.get('Bolt/BoltForms') is defined %}
+    {{ include(template_from_string("boltforms('contact')") }}
 {% else %}
-    <p>Warning: This theme suggests you install the 'Bolt Forms' extension.</p>
+    <p>Warning: This theme suggests you install the 'BoltForms' extension.</p>
 {% endif %}
 ```
 
-<p class="note"><strong>Note:</strong> in the <code>{% if %}</code>-tag you must use the 
-*name* of the extension. Don't add quotes!</p>
+Note: in the `{% if %}` tag you must use the `vendorname` and `extensionname`
+of the extension as a string, so be sure to use quotation marks. If you're not
+sure what the correct name is that you need to use, dump the installed
+extensions to find out:
+
+```twig
+{{ dump(app.extensions.all()) }}
+```
 
 [twig]: http://twig.sensiolabs.org/doc/templates.html
 [inc]: http://twig.sensiolabs.org/doc/functions/include.html
