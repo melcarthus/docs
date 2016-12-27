@@ -125,7 +125,7 @@ Or if you want to print out the selected values in an `ul`:
 ```twig
 <ul>
     {% for values in record.somevalues %}
-        <li>{{ values }}
+        <li>{{ values }}</li>
     {% endfor %}
 </ul>
 ```
