@@ -30,10 +30,18 @@ web sites, it is for development and testing only.</p>
 
 | Option | Description |
 |--------|-------------|
-| -p, --port=PORT | Address port number [default: "8000"]
+| :PORT | Address port number [default: "8000"]
 
 
 ## Examples
+
+```bash
+$ php ./app/nut server:run example.com:8080
+
+[OK] Server running on http://example.com:8080
+
+// Quit the server with CONTROL-C.
+```
 
 ### Default
 
